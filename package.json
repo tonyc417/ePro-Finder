@@ -1,0 +1,25 @@
+{
+  "name": "epro-finder",
+  "version": "1.0.0",
+  "description": "Display your highlights and skills on this app. Become known by other professionals",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tonyc417/ePro-Finder.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tonyc417/ePro-Finder/issues"
+  },
+  "homepage": "https://github.com/tonyc417/ePro-Finder#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "password-generator": "^2.2.0",
+    "path": "^0.12.7"
+  }
+}
