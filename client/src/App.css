@@ -1,5 +1,6 @@
 body {
   height: 100%;
+  background-color: #1f1f1f;
   color: white;
 }
 
@@ -29,13 +30,30 @@ body {
 }
 
 .nav-links, li{
-  color: gray;
+  color: white;
   min-height: 48px;
   max-height: 48px;
   font-size: 30px;
   display: flex;
   list-style: none;
   position: relative;
+  padding: 0px 50px;
+}
+
+.itemCard {
+  display: inline;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(0,0,0,.125);
+  border-radius: .25rem;
+  margin-left: 40px;
+  margin-right: 40px;
+  padding: 2px 16px;
+  text-align: center;
+  background-color: grey;
+}
+
+.cardImg, .itemCard {
+  float: left;
 }
 
 .App {

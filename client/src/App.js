@@ -6,7 +6,10 @@ import './App.css';
 const App = () => {
 
   return(
+    <div>
     <Navbar />
+    <FrontDisplay />
+    </div>
   )
 
 };
