@@ -19,6 +19,7 @@
   "homepage": "https://github.com/tonyc417/ePro-Finder#readme",
   "dependencies": {
     "express": "^4.17.1",
+    "mongoose": "^5.6.7",
     "path": "^0.12.7",
     "react-router-dom": "^5.0.1"
   }
