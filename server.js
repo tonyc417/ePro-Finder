@@ -1,14 +1,21 @@
 const express = require('express');
 const path = require('path');
 const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
 
-var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/epro";
+const users = require('./routes/api/users');
 
-mongoose.connect(MONGODB_URI, { useNewUrlParser: true }, console.log("Mongo Connected"));
-
+mongoose
+ .connect(process.env.MONGODB_URI || "mongodb://localhost/epro", {
+   useNewUrlParser: true
+ })
+ .then(() => console.log("Database Connected"));
+ 
 const app = express();
 
+app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'client/build')));
+app.use('/api/users', users);
 
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname + '/client/build/index.html'));
