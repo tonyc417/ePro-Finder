@@ -4,8 +4,6 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const config = require('config');
 
-
-// const users = require('./routes/api/users');
 const items = require('./routes/api/items');
 
 mongoose

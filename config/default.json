@@ -1,4 +1,4 @@
 {
-    "mongo": "",
+    "mongoURI": "mongodb+srv://tony:testing123@test-cluster-qqupn.mongodb.net/test?retryWrites=true&w=majority",
     "jwtSecret": "epro_secret"
 }
