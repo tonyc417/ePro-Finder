@@ -21,12 +21,12 @@ const App = () => {
         <div>
           <Navbar />
           <Container>
-          <PostModal />
-          <Switch>
-            <Route path="/" exact component={FrontDisplay} />
-            <Route path="/allpost" component={Posts} />
-            <Route path="/register" component={Signup} />
-          </Switch>
+            <PostModal />
+            <Switch>
+              <Route path="/" exact component={Posts} />
+              <Route path="/testing" component={FrontDisplay} />
+              <Route path="/register" component={Signup} />
+            </Switch>
           </Container>
         </div>
       </Router>

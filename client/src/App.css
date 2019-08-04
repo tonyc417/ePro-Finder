@@ -80,6 +80,10 @@ body, .list-group-item {
   background-color: grey;
 }
 
+.card-title {
+  color: black;
+}
+
 .cardImg, .itemCard {
   float: left;
 }

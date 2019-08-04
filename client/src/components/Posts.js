@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
-import { Container, ListGroup, ListGroupItem, Button} from 'reactstrap';
+import {
+    Container, Card, CardText, CardBody,
+    CardTitle, CardSubtitle, Button
+} from 'reactstrap';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { connect } from 'react-redux';
 import { getItems, deleteItem } from '../actions/itemActions';
@@ -16,25 +19,34 @@ class Posts extends Component {
 
     render() {
         const { items } = this.props.item;
-        return(
+        return (
+            // <div>
+            //     <h4>Recent</h4>
+            //     <div>
+            //         {items.map(({ _id, name, summary}) => (
+            //             <h2>{name}{summary}</h2>
+            //         ))}
+            //     </div>
+            // </div>
             <Container>
-                <ListGroup>
+                <h4>Recent</h4>
+                <Card className="itemCard mb-5">
                     <TransitionGroup className="shopping-list">
-                        {items.map(({ _id,name }) => (
+                        {items.map(({ _id,name,summary }) => (
                             <CSSTransition key={_id} timeout={500} classNames="fade">
-                                <ListGroupItem>
+                                <CardTitle>
                                     <Button 
                                     className="remove-btn" 
                                     color="danger"
                                     size="sm"
                                     onClick={this.onDeleteClick.bind(this, _id)}
                                     >&times;</Button>
-                                    {name}
-                                </ListGroupItem>
+                                    <h2 className="card-title">{name}</h2> <h4 className="card-text">{summary}</h4>
+                                </CardTitle>
                             </CSSTransition>
                         ))}
                     </TransitionGroup>
-                </ListGroup>
+                </Card>
             </Container>
         );
     }

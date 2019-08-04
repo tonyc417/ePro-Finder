@@ -1,6 +1,8 @@
 import axios from 'axios';
 import { GET_ITEMS, ADD_ITEM, DELETE_ITEM, ITEMS_LOADING } from '../actions/types';
 
+//IMPORT FOR DISPLAYING DATA FROM CERTAIN ROUTES
+
 export const getItems = () => dispatch => {
     dispatch(setItemsLoading());
     axios

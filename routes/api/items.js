@@ -7,14 +7,15 @@ const Item = require('../../models/Item');
 //route GET api/items
 router.get('/', (req,res) => {
     Item.find()
-    .sort({ date: -1}) //sorts by dates descending
+    .sort({ date: -1}) //sorts posts by dates
     .then(items => res.json(items));
 });
-//Post request
+//Post request very important for adding new item 
 //creates post
 router.post('/', (req,res) => {
     const newItem = new Item({
-        name: req.body.name
+        name: req.body.name,
+        summary: req.body.summary
     });
 
     newItem.save().then(item => res.json(item));

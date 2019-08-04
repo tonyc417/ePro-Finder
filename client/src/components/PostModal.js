@@ -6,7 +6,8 @@ import { addItem } from '../actions/itemActions';
 class PostModal extends Component {
     state = {
         modal: false,
-        name: ''
+        name: '',
+        summary: ''
     }
 
     toggle = () => {
@@ -23,7 +24,8 @@ class PostModal extends Component {
         e.preventDefault();
 
         const newItem = {
-            name: this.state.name
+            name: this.state.name,
+            summary: this.state.summary
         }
 
         this.props.addItem(newItem);
@@ -45,7 +47,7 @@ class PostModal extends Component {
                     isOpen={this.state.modal}
                     toggle={this.toggle}
                 >
-                    <ModalHeader 
+                    <ModalHeader
                         className="text-dark"
                         toggle={this.toggle}>
                         New Post
@@ -54,18 +56,26 @@ class PostModal extends Component {
                         <Form onSubmit={this.onSubmit}>
                             <FormGroup>
                                 <Label className="text-dark" for="caption">Caption</Label>
-                                <Input 
+                                <Input
                                     type="text"
                                     name="name"
                                     id="item"
                                     placeholder="Your caption"
                                     onChange={this.onChange}
-                                    />
-                            <Button
-                                color="dark"
-                                className="mt-3"
-                                block
-                            >Submit Post</Button>
+                                />
+                                <Label className="text-dark" for="summary">Description</Label>
+                                <Input
+                                    type="text"
+                                    name="summary"
+                                    id="summary"
+                                    placeholder="Description"
+                                    onChange={this.onChange}
+                                />
+                                <Button
+                                    color="dark"
+                                    className="mt-3"
+                                    block
+                                >Submit Post</Button>
                             </FormGroup>
                         </Form>
                     </ModalBody>

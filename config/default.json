@@ -1,0 +1,4 @@
+{
+    "mongo": "",
+    "jwtSecret": "epro_secret"
+}
