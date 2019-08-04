@@ -3,7 +3,8 @@ const path = require('path');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 
-const users = require('./routes/api/users');
+// const users = require('./routes/api/users');
+const items = require('./routes/api/items');
 
 mongoose
  .connect(process.env.MONGODB_URI || "mongodb://localhost/epro", {
@@ -15,7 +16,7 @@ const app = express();
 
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'client/build')));
-app.use('/api/users', users);
+app.use('/api/items', items);
 
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname + '/client/build/index.html'));

@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Button, Form, FormGroup, Label, Input, Modal, ModalHeader, ModalBody } from 'reactstrap';
 import { connect } from 'react-redux';
 import { addItem } from '../actions/itemActions';
-import uuid from 'uuid';
 
 class PostModal extends Component {
     state = {
@@ -24,7 +23,6 @@ class PostModal extends Component {
         e.preventDefault();
 
         const newItem = {
-            id: uuid(),
             name: this.state.name
         }
 
@@ -41,7 +39,7 @@ class PostModal extends Component {
                     style={{ marginBottom: '2rem' }}
                     onClick={this.toggle}
                 >
-                    Add Item
+                    New Post
               </Button>
                 <Modal
                     isOpen={this.state.modal}
