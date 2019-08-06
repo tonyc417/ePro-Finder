@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import RegisterModal from './auth/RegisterUser';
 
 const frontNav = () => {
     return (
@@ -9,9 +10,7 @@ const frontNav = () => {
                     <Link to="/">
                         <li className="float-left">eRecruit</li>
                     </Link>
-                    <Link to="/register">
-                        <li className="float-right">Login or Sign Up</li>
-                    </Link>
+                    <RegisterModal />
                 </ul>
             </nav>
             <nav className="nav-bar">

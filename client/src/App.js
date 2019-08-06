@@ -5,7 +5,7 @@ import FrontDisplay from './components/FrontDisplay';
 import Signup from './components/Signup';
 import Posts from './components/Posts';
 import PostModal from './components/PostModal';
-import RegisterModal from './components/auth/RegisterUser';
+import Frontnav from './components/Frontnav';
 
 import { Provider } from 'react-redux';
 import store from './store';
@@ -26,7 +26,7 @@ class App extends Component {
       <Provider store={store}>
         <Router>
           <div>
-            <Navbar />
+            <Frontnav />
             <Container>
               <PostModal />
               {/* <RegisterModal /> */}
