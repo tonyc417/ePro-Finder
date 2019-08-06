@@ -4,54 +4,58 @@ const bcrypt = require('bcryptjs');
 const config = require('config');
 const jwt = require('jsonwebtoken');
 
+
+// User Model
 const User = require('../../models/User');
 
-//Route for getting all users information
-router.post('/', (req,res) => {
-    const { name, email, password } = req.body;
-    
-    //validate
-    if(!name || !email || !password) {
-        return res.status(400).json({ msg: 'Please complete all fields' });
-    }
+// @route   POST api/users
+// @desc    Register new user
+// @access  Public
+router.post('/', (req, res) => {
+  const { name, email, password } = req.body;
 
-    //check if user exists
-    User.findOne({ email })
+  // Simple validation
+  if(!name || !email || !password) {
+    return res.status(400).json({ msg: 'Please enter all fields' });
+  }
+
+  // Check for existing user
+  User.findOne({ email })
     .then(user => {
-        if(user) return res.status(400).json({ msg: 'User already exists '});
+      if(user) return res.status(400).json({ msg: 'User already exists' });
 
-        const newUser = new User({
-            name,
-            email,
-            password
-        });
+      const newUser = new User({
+        name,
+        email,
+        password
+      });
 
-        //Creating salt and hash
-        bcrypt.genSalt(10, (err, salt) => {
-            bcrypt.hash(newUser.password, salt, (err, hash) => {
-                if(err) throw err;
-                newUser.password = hash;
-                newUser.save().then(user => {
-
-                    jwt.sign(
-                        { id: user.id },
-                        config.get('jwtSecret'),
-                        { expiresIn: 3600 },
-                        (err, token) => {
-                            if (err) throw err;
-                            res.json({
-                                token,
-                                user: {
-                                    id: user.id,
-                                    name: user.name,
-                                    email: user.email
-                                }
-                            });
-                        }
-                    )
-                });
-            })
+      // Create salt & hash
+      bcrypt.genSalt(10, (err, salt) => {
+        bcrypt.hash(newUser.password, salt, (err, hash) => {
+          if(err) throw err;
+          newUser.password = hash;
+          newUser.save()
+            .then(user => {
+              jwt.sign(
+                { id: user.id },
+                config.get('jwtSecret'),
+                { expiresIn: 3600 },
+                (err, token) => {
+                  if(err) throw err;
+                  res.json({
+                    token,
+                    user: {
+                      id: user.id,
+                      name: user.name,
+                      email: user.email
+                    }
+                  });
+                }
+              )
+            });
         })
+      })
     })
 });
 
