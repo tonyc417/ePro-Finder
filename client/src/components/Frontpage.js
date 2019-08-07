@@ -12,6 +12,7 @@ import {
     Col,
     Button
 } from 'reactstrap';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import RegisterModal from './auth/RegisterUser';
@@ -78,14 +79,16 @@ class Front extends Component {
                         </Container>
                     </Navbar>
                     <Container>
-                    <Row>
-                        <Col className="frontText mt-5">Welcome</Col>
-                    </Row>
-                    <Row>
-                        <Col>
-                        <Button className="frontBtn mt-5">Start</Button>
-                        </Col>
-                    </Row>
+                        <Row>
+                            <Col className="frontText mt-5">Welcome</Col>
+                        </Row>
+                        <Row>
+                            <Col>
+                                <Link to="/home">
+                                    <Button className="frontBtn mt-5">Start</Button>
+                                </Link>
+                            </Col>
+                        </Row>
                     </Container>
                 </div>
             </section>
