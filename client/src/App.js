@@ -5,7 +5,7 @@ import FrontDisplay from './components/FrontDisplay';
 import Signup from './components/Signup';
 import Posts from './components/Posts';
 import PostModal from './components/PostModal';
-import Frontnav from './components/Frontnav';
+import Front from './components/Frontpage';
 
 import { Provider } from 'react-redux';
 import store from './store';
@@ -26,16 +26,14 @@ class App extends Component {
       <Provider store={store}>
         <Router>
           <div>
-            <Frontnav />
-            <Container>
-              <PostModal />
+              {/* <PostModal /> */}
               {/* <RegisterModal /> */}
               <Switch>
-                <Route path="/" exact component={Posts} />
+                <Route path="/" exact component={Front} />
+                <Route path="/home" component={Posts} />
                 <Route path="/testing" component={FrontDisplay} />
                 <Route path="/register" component={Signup} />
               </Switch>
-            </Container>
           </div>
         </Router>
       </Provider>

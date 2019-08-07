@@ -6,13 +6,25 @@ body, .list-group-item {
 
 .hero-image {
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("./images/9182.jpg");
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
-  height: 400px;
+  height: 100vh;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
-  border-bottom: 4px solid #333;
+}
+
+.customNav {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.frontText {
+  font-size: 40px;
+}
+
+.frontBtn {
+  font-size: 30px;
+  background-color: grey;
+  border: none;
 }
 
 .logoBar {
