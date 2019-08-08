@@ -6,7 +6,9 @@ import {
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { connect } from 'react-redux';
 import { getItems, deleteItem } from '../actions/itemActions';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import PostModal from './PostModal';
 
 class Posts extends Component {
     componentDidMount() {
@@ -20,36 +22,31 @@ class Posts extends Component {
     render() {
         const { items } = this.props.item;
         return (
-            // <div>
-            //     <h4>Recent</h4>
-            //     <div>
-            //         {items.map(({ _id, name, summary}) => (
-            //             <h2>{name}{summary}</h2>
-            //         ))}
-            //     </div>
-            // </div>
             <div>
                 <div className="controls">
                     <div className="sidebar">
                         <nav className="sidebar-nav">
                             <ul className="nav">
                                 <li class="nav-item">
-                                    <a class="nav-link active" href="#">
+                                    <p className="nav-link active" href="#">
                                         Welcome, Tony
-                                    </a>
+                                    </p>
                                 </li>
+                                <Link to="/">
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">
-                                        Dashboard
-                                     </a>
+                                    <p className="nav-link" href="#">
+                                        Home
+                                     </p>
                                 </li>
+                                </Link>
                             </ul>
                         </nav>
                     </div>
-                </div>
-                <Container>
-                    <h4>Home</h4>
-                    <Card className="itemCard mb-5">
+                    <div>
+                        <Container>
+                        <h4>Home</h4>
+                        <PostModal />
+                        <Card className="itemCard mb-5">
                         <TransitionGroup className="shopping-list">
                             {items.map(({ _id, name, summary }) => (
                                 <CSSTransition key={_id} timeout={500} classNames="fade">
@@ -66,7 +63,9 @@ class Posts extends Component {
                             ))}
                         </TransitionGroup>
                     </Card>
-                </Container>
+                    </Container>
+                    </div>
+                </div>
             </div>
         );
     }

@@ -4,14 +4,12 @@ import Navbar from './components/Navbar';
 import FrontDisplay from './components/FrontDisplay';
 import Signup from './components/Signup';
 import Posts from './components/Posts';
-import PostModal from './components/PostModal';
 import Front from './components/Frontpage';
 
 import { Provider } from 'react-redux';
 import store from './store';
 import { loadUser } from './actions/authActions';
 
-import { Container } from 'reactstrap'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
@@ -26,8 +24,6 @@ class App extends Component {
       <Provider store={store}>
         <Router>
           <div>
-              {/* <PostModal /> */}
-              {/* <RegisterModal /> */}
               <Switch>
                 <Route path="/" exact component={Front} />
                 <Route path="/home" component={Posts} />
