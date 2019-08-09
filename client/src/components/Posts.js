@@ -27,13 +27,13 @@ class Posts extends Component {
                     <div className="sidebar">
                         <nav className="sidebar-nav">
                             <ul className="nav">
-                                <li class="nav-item">
+                                <li className="nav-item">
                                     <p className="nav-link active" href="#">
                                         Welcome, Tony
                                     </p>
                                 </li>
                                 <Link to="/">
-                                <li class="nav-item">
+                                <li className="nav-item">
                                     <p className="nav-link" href="#">
                                         Home
                                      </p>

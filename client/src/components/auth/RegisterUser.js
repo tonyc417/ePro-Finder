@@ -35,7 +35,7 @@ class RegisterModal extends Component {
   componentDidUpdate(prevProps) {
     const { error, isAuthenticated } = this.props;
     if (error !== prevProps.error) {
-      // Check for register error
+
       if (error.id === 'REGISTER_FAIL') {
         this.setState({ msg: error.msg.msg });
       } else {
@@ -43,7 +43,6 @@ class RegisterModal extends Component {
       }
     }
 
-    // If authenticated, close modal
     if (this.state.modal) {
       if (isAuthenticated) {
         this.toggle();
@@ -52,7 +51,6 @@ class RegisterModal extends Component {
   }
 
   toggle = () => {
-    // Clear errors
     this.props.clearErrors();
     this.setState({
       modal: !this.state.modal
@@ -68,23 +66,21 @@ class RegisterModal extends Component {
 
     const { name, email, password } = this.state;
 
-    // Create user object
     const newUser = {
       name,
       email,
       password
     };
 
-    // Attempt to register
     this.props.register(newUser);
   };
 
   render() {
     return (
       <div>
-        <NavLink onClick={this.toggle} href='#'>
+        <li onClick={this.toggle} href='#'>
           Register
-        </NavLink>
+        </li>
 
         <Modal isOpen={this.state.modal} toggle={this.toggle}>
           <ModalHeader toggle={this.toggle}>Register</ModalHeader>

@@ -5,30 +5,26 @@ const config = require('config');
 const jwt = require('jsonwebtoken');
 const auth = require('../../middleware/auth');
 
-
-// User Model
 const User = require('../../models/User');
 
-// @route   POST api/auth
-// @desc    Auth user
-// @access  Public
+// Post User to database
 router.post('/', (req, res) => {
   const { email, password } = req.body;
 
   // Simple validation
   if(!email || !password) {
-    return res.status(400).json({ msg: 'Please enter all fields' });
+    return res.status(400).json({ msg: 'Please complete all the fields' });
   }
 
-  // Check for existing user
+  // Checks for user
   User.findOne({ email })
     .then(user => {
-      if(!user) return res.status(400).json({ msg: 'User Does not exist' });
+      if(!user) return res.status(400).json({ msg: 'Invalid username or password' });
 
-      // Validate password
+      // checks password
       bcrypt.compare(password, user.password)
         .then(isMatch => {
-          if(!isMatch) return res.status(400).json({ msg: 'Invalid credentials' });
+          if(!isMatch) return res.status(400).json({ msg: 'Invalid username or password' });
 
           jwt.sign(
             { id: user.id },
@@ -50,9 +46,7 @@ router.post('/', (req, res) => {
     })
 });
 
-// @route   GET api/auth/user
-// @desc    Get user data
-// @access  Private
+//Protected route
 router.get('/user', auth, (req, res) => {
   User.findById(req.user.id)
     .select('-password')

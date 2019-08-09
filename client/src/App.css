@@ -14,7 +14,7 @@ body, .list-group-item {
 }
 
 .customNav {
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(0, 0, 0, 0.0); 
 }
 
 .frontText {
@@ -69,6 +69,7 @@ body, .list-group-item {
   list-style: none;
   position: relative;
   padding: 0px 50px;
+  text-transform: uppercase;
 }
 
 .itemCard {

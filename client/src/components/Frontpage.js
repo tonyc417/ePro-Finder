@@ -51,17 +51,33 @@ class Front extends Component {
         );
 
         const guest = (
-            <Fragment>
-                <NavItem>
-                    <RegisterModal />
-                </NavItem>
-                <NavItem>
-                    <Login />
-                </NavItem>
-                <NavItem>
-                    Games
-                </NavItem>
-            </Fragment>
+            <div>
+                <ul className="nav-links">
+                    <Link to="/">
+                        <RegisterModal />
+                    </Link>
+                    <Link to="/newmem">
+                        <li>New Members</li>
+                    </Link>
+                    <Link to="/games">
+                        <li>Games</li>
+                    </Link>
+                    <Link to="/clans">
+                        <li>Find Clan</li>
+                    </Link>
+                </ul>
+            </div>
+            // <Fragment>
+            //     <NavItem>
+            //         <RegisterModal />
+            //     </NavItem>
+            //     <NavItem>
+            //         <Login />
+            //     </NavItem>
+            //     <NavItem>
+            //         Games
+            //     </NavItem>
+            // </Fragment>
         );
 
         return (
