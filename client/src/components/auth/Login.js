@@ -78,9 +78,9 @@ class LoginModal extends Component {
     render() {
         return (
             <div>
-                <li onClick={this.toggle} href="#">
+                <button onClick={this.toggle} href="#" className="loginBtn">
                     Login
-                </li>
+                </button>
 
                 <Modal isOpen={this.state.modal} toggle={this.toggle}>
                     <ModalHeader toggle={this.toggle}>Login</ModalHeader>

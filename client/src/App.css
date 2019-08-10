@@ -23,8 +23,10 @@ body, .list-group-item {
 
 .frontBtn {
   font-size: 30px;
-  background-color: grey;
+  background-color: #696bff;
   border: none;
+  border-radius: 13px;
+  padding: .4rem 2rem;
 }
 
 .logoBar {
@@ -64,11 +66,21 @@ body, .list-group-item {
   color: white;
   min-height: 50px;
   max-height: 50px;
-  font-size: 20px;
+  font-size: 1rem;
   display: flex;
   list-style: none;
   position: relative;
   padding: 0px 50px;
+}
+
+.loginBtn {
+  border: none;
+  color: white;
+  padding: .4rem 2rem;
+  border-radius: 1rem;
+  margin-right: 2rem;
+  background: #696bff;
+
 }
 
 .itemCard {

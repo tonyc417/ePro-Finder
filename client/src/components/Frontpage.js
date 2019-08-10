@@ -66,14 +66,14 @@ class Front extends Component {
             <div>
                 <ul className="nav-links">
                     <Link to="/">
-                        <RegisterModal />
-                    </Link>
-                    <Login />
-                    <Link to="/games">
                         <li>Games</li>
                     </Link>
-                    <Link to="/clans">
                         <li>Find Clan</li>
+                    <Link to="/games">
+                        <RegisterModal />
+                    </Link>
+                    <Link to="/clans">
+                        <Login />
                     </Link>
                 </ul>
             </div>

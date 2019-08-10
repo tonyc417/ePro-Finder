@@ -21,6 +21,7 @@ class Posts extends Component {
 
     render() {
         const { items } = this.props.item;
+        console.log(items);
         return (
             <div>
                 <div className="controls">
@@ -50,15 +51,7 @@ class Posts extends Component {
                         </nav>
                     </div>
                     <div>
-                        <div className="itemCard">
-                            {items.map(({ _id, name, summary}) => (
-                                <h4>{name}</h4>
-                            ))}
-                            {/* <img className="cardImg" alt="Fornite" width="400px"></img>
-                            <h4 className="card-title">Title</h4>
-                            <p className="card-text">Description</p> */}
-                        </div>
-                        {/* <Container>
+                        <Container>
                         <h4>Home</h4>
                         <PostModal />
                         <Card className="itemCard mb-5">
@@ -78,7 +71,7 @@ class Posts extends Component {
                             ))}
                         </TransitionGroup>
                     </Card>
-                    </Container> */}
+                    </Container>
                     </div>
                 </div>
             </div>
