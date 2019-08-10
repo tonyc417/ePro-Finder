@@ -5,6 +5,7 @@ import FrontDisplay from './components/FrontDisplay';
 import Signup from './components/Signup';
 import Posts from './components/Posts';
 import Front from './components/Frontpage';
+import Games from './components/Games';
 
 import { Provider } from 'react-redux';
 import store from './store';
@@ -29,6 +30,7 @@ class App extends Component {
                 <Route path="/home" component={Posts} />
                 <Route path="/testing" component={FrontDisplay} />
                 <Route path="/register" component={Signup} />
+                <Route path="/games" component={Games} />
               </Switch>
           </div>
         </Router>

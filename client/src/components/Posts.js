@@ -33,17 +33,32 @@ class Posts extends Component {
                                     </p>
                                 </li>
                                 <Link to="/">
-                                <li className="nav-item">
-                                    <p className="nav-link" href="#">
-                                        Home
+                                    <li className="nav-item">
+                                        <p className="nav-link" href="#">
+                                            Home
                                      </p>
-                                </li>
+                                    </li>
+                                </Link>
+                                <Link to="/games">
+                                    <li className="nav-item">
+                                        <p className="nav-link" href="#">
+                                            Games
+                                     </p>
+                                    </li>
                                 </Link>
                             </ul>
                         </nav>
                     </div>
                     <div>
-                        <Container>
+                        <div className="itemCard">
+                            {items.map(({ _id, name, summary}) => (
+                                <h4>{name}</h4>
+                            ))}
+                            {/* <img className="cardImg" alt="Fornite" width="400px"></img>
+                            <h4 className="card-title">Title</h4>
+                            <p className="card-text">Description</p> */}
+                        </div>
+                        {/* <Container>
                         <h4>Home</h4>
                         <PostModal />
                         <Card className="itemCard mb-5">
@@ -63,7 +78,7 @@ class Posts extends Component {
                             ))}
                         </TransitionGroup>
                     </Card>
-                    </Container>
+                    </Container> */}
                     </div>
                 </div>
             </div>
