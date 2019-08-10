@@ -18,9 +18,6 @@ const frontNav = () => {
                     <Link to="/">
                         <li>Home</li>
                     </Link>
-                    <Link to="/newmem">
-                        <li>New Members</li>
-                    </Link>
                     <Link to="/games">
                         <li>Games</li>
                     </Link>

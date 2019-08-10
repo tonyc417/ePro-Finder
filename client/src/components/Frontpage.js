@@ -38,16 +38,28 @@ class Front extends Component {
         const { user, isAuthenticated } = this.props.auth;
 
         const userLinks = (
-            <Fragment>
-                <NavItem>
-                    <span className='navbar-text mr-3'>
+            <div>
+                {/* <ul className="nav-links">
+                    <Link to="/">
+                        <Logout />
+                    </Link>
+                    <li><span className='navbar-text mr-3'>
                         <strong>{user ? `Welcome ${user.name}` : ''}</strong>
-                    </span>
-                </NavItem>
-                <NavItem>
-                    <Logout />
-                </NavItem>
-            </Fragment>
+                    </span></li>
+                    <li></li>
+
+                </ul> */}
+                <Fragment>
+                    <NavItem>
+                        <span className='navbar-text mr-3'>
+                            <strong>{user ? `Welcome ${user.name}` : ''}</strong>
+                        </span>
+                    </NavItem>
+                    <NavItem>
+                        <Logout />
+                    </NavItem>
+                </Fragment>
+            </div>
         );
 
         const guest = (
@@ -56,9 +68,7 @@ class Front extends Component {
                     <Link to="/">
                         <RegisterModal />
                     </Link>
-                    <Link to="/newmem">
-                        <li>New Members</li>
-                    </Link>
+                    <Login />
                     <Link to="/games">
                         <li>Games</li>
                     </Link>
@@ -67,17 +77,6 @@ class Front extends Component {
                     </Link>
                 </ul>
             </div>
-            // <Fragment>
-            //     <NavItem>
-            //         <RegisterModal />
-            //     </NavItem>
-            //     <NavItem>
-            //         <Login />
-            //     </NavItem>
-            //     <NavItem>
-            //         Games
-            //     </NavItem>
-            // </Fragment>
         );
 
         return (

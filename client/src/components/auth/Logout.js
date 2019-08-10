@@ -11,11 +11,11 @@ export class Logout extends Component {
 
   render() {
     return (
-      <Fragment>
-        <NavLink onClick={this.props.logout} href='#'>
+      <div>
+        <li onClick={this.toggle} href="#">
           Logout
-        </NavLink>
-      </Fragment>
+        </li>
+      </div>
     );
   }
 }

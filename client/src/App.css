@@ -69,7 +69,6 @@ body, .list-group-item {
   list-style: none;
   position: relative;
   padding: 0px 50px;
-  text-transform: uppercase;
 }
 
 .itemCard {
