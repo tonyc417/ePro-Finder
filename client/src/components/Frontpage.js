@@ -65,16 +65,14 @@ class Front extends Component {
         const guest = (
             <div>
                 <ul className="nav-links">
-                    <Link to="/">
+                    <Link to="/games">
                         <li>Games</li>
                     </Link>
+                    <Link to ="/clans">
                         <li>Find Clan</li>
-                    <Link to="/games">
+                    </Link>
                         <RegisterModal />
-                    </Link>
-                    <Link to="/clans">
                         <Login />
-                    </Link>
                 </ul>
             </div>
         );
