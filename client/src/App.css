@@ -71,6 +71,7 @@ body, .list-group-item {
   list-style: none;
   position: relative;
   padding: 0px 50px;
+  cursor: pointer;
 }
 
 .loginBtn {

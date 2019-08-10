@@ -5,8 +5,6 @@ import {
     NavbarToggler,
     NavbarBrand,
     Nav,
-    NavItem,
-    NavLink,
     Container,
     Row,
     Col,
@@ -39,26 +37,12 @@ class Front extends Component {
 
         const userLinks = (
             <div>
-                {/* <ul className="nav-links">
-                    <Link to="/">
-                        <Logout />
-                    </Link>
-                    <li><span className='navbar-text mr-3'>
-                        <strong>{user ? `Welcome ${user.name}` : ''}</strong>
-                    </span></li>
-                    <li></li>
-
-                </ul> */}
-                <Fragment>
-                    <NavItem>
-                        <span className='navbar-text mr-3'>
-                            <strong>{user ? `Welcome ${user.name}` : ''}</strong>
-                        </span>
-                    </NavItem>
-                    <NavItem>
-                        <Logout />
-                    </NavItem>
-                </Fragment>
+                <ul className="nav-links">
+                    <li>
+                       {user ? `Welcome ${user.name}` : ''}
+                    </li>
+                    <Logout />
+                </ul>
             </div>
         );
 
