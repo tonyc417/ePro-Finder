@@ -39,7 +39,7 @@ class Front extends Component {
             <div>
                 <ul className="nav-links">
                     <li>
-                       {user ? `Welcome ${user.name}` : ''}
+                        {user ? `Welcome ${user.name}` : ''}
                     </li>
                     <Logout />
                 </ul>
@@ -52,11 +52,11 @@ class Front extends Component {
                     <Link to="/games">
                         <li>Games</li>
                     </Link>
-                    <Link to ="/clans">
+                    <Link to="/clans">
                         <li>Find Clan</li>
                     </Link>
-                        <RegisterModal />
-                        <Login />
+                    <RegisterModal />
+                    <Login />
                 </ul>
             </div>
         );
@@ -76,9 +76,25 @@ class Front extends Component {
                         </Container>
                     </Navbar>
                     <Container>
-                        <Row>
-                            <Col className="frontText mt-5">Welcome</Col>
-                        </Row>
+                        <div className="animated-text">
+                            <Row>
+                                <div className="frontText">Your one stop for</div>
+                                <Col className="mt-5 frontText">
+                                <div className="line">
+                                        Gaming
+                                </div>
+                                    <div className="line">
+                                        Hightlights
+                                </div>
+                                <div className="line">
+                                        Clans
+                                </div>
+                                <div className="line">
+                                        News
+                                </div>
+                                </Col>
+                            </Row>
+                        </div>
                         <Row>
                             <Col>
                                 <Link to="/home">
