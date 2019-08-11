@@ -78,7 +78,7 @@ class RegisterModal extends Component {
   render() {
     return (
       <div>
-        <li onClick={this.toggle} href='#'>
+        <li onClick={this.toggle} href='#' className="nav-links">
           Register
         </li>
 

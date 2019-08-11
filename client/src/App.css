@@ -34,6 +34,11 @@ body{
   position: fixed;
 }
 
+.frontBtn:hover {
+  background-color: #696bff;
+  opacity: 0.7;
+}
+
 .logoBar {
   display: flex;
 }
