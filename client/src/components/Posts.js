@@ -66,7 +66,15 @@ class Posts extends Component {
                             <Card>
                                 <CardBody>
                                 {items.map((item) => (
-                                    <CardTitle>{item.name}</CardTitle>
+                                    <CardTitle>
+                                        <Button
+                                            className="remove-btn"
+                                            color="danger"
+                                            size="sm"
+                                            onClick={this.onDeleteClick.bind(this, item._id)}
+                                        >&times;</Button>
+                                    {item.name} Posted by: {user ? `${user.name}`: ''}
+                                    </CardTitle>
                                 ))}
                                 </CardBody>
                             </Card>
