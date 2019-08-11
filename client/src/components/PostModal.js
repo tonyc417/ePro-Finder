@@ -6,8 +6,7 @@ import { addItem } from '../actions/itemActions';
 class PostModal extends Component {
     state = {
         modal: false,
-        name: '',
-        summary: ''
+        name: ''
     }
 
     toggle = () => {
@@ -24,8 +23,7 @@ class PostModal extends Component {
         e.preventDefault();
 
         const newItem = {
-            name: this.state.name,
-            summary: this.state.summary
+            name: this.state.name
         }
 
         this.props.addItem(newItem);
@@ -55,19 +53,11 @@ class PostModal extends Component {
                     <ModalBody>
                         <Form onSubmit={this.onSubmit}>
                             <FormGroup>
-                                <Label className="text-dark" for="caption">Caption</Label>
+                                <Label className="text-dark" for="caption">Description</Label>
                                 <Input
                                     type="text"
                                     name="name"
                                     id="item"
-                                    placeholder="Your caption"
-                                    onChange={this.onChange}
-                                />
-                                <Label className="text-dark" for="summary">Description</Label>
-                                <Input
-                                    type="text"
-                                    name="summary"
-                                    id="summary"
                                     placeholder="Description"
                                     onChange={this.onChange}
                                 />

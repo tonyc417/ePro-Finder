@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {
-    Container, Card, CardText, CardBody,
+    Container, Card, CardHeader, CardText, CardBody,
     CardTitle, CardSubtitle, Button
 } from 'reactstrap';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
@@ -20,7 +20,9 @@ class Posts extends Component {
     }
 
     render() {
+        const { user } = this.props.auth;
         const { items } = this.props.item;
+
         return (
             <div>
                 <div className="controls">
@@ -29,7 +31,7 @@ class Posts extends Component {
                             <ul className="nav">
                                 <li className="nav-item">
                                     <p className="nav-link active" href="#">
-                                        Welcome, Tony
+                                        Welcome, {user ? `${user.name}`: ''}
                                     </p>
                                 </li>
                                 <Link to="/">
@@ -51,6 +53,25 @@ class Posts extends Component {
                     </div>
                     <div>
                         <Container>
+                            <h4>Home</h4>
+                            {/* <Card>
+                                <CardHeader>New Post</CardHeader>
+                                <CardBody>
+                                    <CardText>
+                                        <input></input>
+                                    </CardText>
+                                </CardBody>
+                            </Card> */}
+                            <PostModal />
+                            <Card>
+                                <CardBody>
+                                {items.map((item) => (
+                                    <CardTitle>{item.name}</CardTitle>
+                                ))}
+                                </CardBody>
+                            </Card>
+                        </Container>
+                        {/* <Container>
                         <h4>Home</h4>
                         <PostModal />
                         <Card className="itemCard mb-5">
@@ -70,7 +91,7 @@ class Posts extends Component {
                             ))}
                         </TransitionGroup>
                     </Card>
-                    </Container>
+                    </Container> */}
                     </div>
                 </div>
             </div>
@@ -84,7 +105,8 @@ Posts.propTypes = {
 }
 
 const mapStateToProps = (state) => ({
-    item: state.item
+    item: state.item,
+    auth: state.auth
 });
 
 export default connect(mapStateToProps, { getItems, deleteItem })(Posts);

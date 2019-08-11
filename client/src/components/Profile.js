@@ -20,6 +20,7 @@ class UserProfile extends Component {
             <div>
                 <Container>
                 <h1>{user ? `${user.name}`: ''}</h1>
+                <p>Date Joined:</p>
                 <Row>
                     <Col>
                         <h4>Platform:</h4>

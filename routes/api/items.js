@@ -16,8 +16,7 @@ router.get('/', (req,res) => {
 //Protected route
 router.post('/', auth, (req,res) => {
     const newItem = new Item({
-        name: req.body.name,
-        summary: req.body.summary
+        name: req.body.name
     });
 
     newItem.save().then(item => res.json(item));
