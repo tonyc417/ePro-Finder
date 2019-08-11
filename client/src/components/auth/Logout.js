@@ -12,7 +12,7 @@ export class Logout extends Component {
   render() {
     return (
       <div>
-        <li onClick={this.toggle} href="#">
+        <li onClick={this.props.logout} href="#">
           Logout
         </li>
       </div>

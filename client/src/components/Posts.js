@@ -21,7 +21,6 @@ class Posts extends Component {
 
     render() {
         const { items } = this.props.item;
-        console.log(items);
         return (
             <div>
                 <div className="controls">

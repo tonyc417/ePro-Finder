@@ -5,7 +5,11 @@ const displayGame = () => {
     return (
         <div>
             <Container>
-                <h3>Fornite</h3>
+                <h1>Games</h1>
+                <div>
+                    <h3>Fortnite</h3>
+                </div>
+                
             </Container>
         </div>
     );

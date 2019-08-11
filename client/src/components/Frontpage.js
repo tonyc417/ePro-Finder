@@ -16,6 +16,7 @@ import PropTypes from 'prop-types';
 import RegisterModal from './auth/RegisterUser';
 import Login from './auth/Login';
 import Logout from './auth/Logout';
+import gameSplash from '../images/gamingfront.jpg';
 
 class Front extends Component {
     state = {
@@ -25,6 +26,7 @@ class Front extends Component {
     static propTypes = {
         auth: PropTypes.object.isRequired
     };
+
 
     toggle = () => {
         this.setState({
@@ -41,6 +43,12 @@ class Front extends Component {
                     <li>
                         {user ? `Welcome ${user.name}` : ''}
                     </li>
+                    <Link to="/games">
+                        <li>Games</li>
+                    </Link>
+                    <Link to="/profile">
+                        <li>My Profile</li>
+                    </Link>
                     <Logout />
                 </ul>
             </div>
@@ -100,6 +108,9 @@ class Front extends Component {
                                 <Link to="/home">
                                     <Button className="frontBtn mt-5">Start</Button>
                                 </Link>
+                            </Col>
+                            <Col className="mt-5">
+                                <img src={gameSplash} alt="An ESports event" width="500px"></img>
                             </Col>
                         </Row>
                     </Container>
