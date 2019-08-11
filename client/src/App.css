@@ -178,3 +178,7 @@ body{
   flex: 1;
   width: 200px;
 }
+
+.modalHead {
+  color: black;
+}

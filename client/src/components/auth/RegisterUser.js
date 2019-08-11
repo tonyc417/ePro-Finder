@@ -83,14 +83,14 @@ class RegisterModal extends Component {
         </li>
 
         <Modal isOpen={this.state.modal} toggle={this.toggle}>
-          <ModalHeader toggle={this.toggle}>Register</ModalHeader>
+          <ModalHeader toggle={this.toggle} className="modalHead">Register</ModalHeader>
           <ModalBody>
             {this.state.msg ? (
               <Alert color='danger'>{this.state.msg}</Alert>
             ) : null}
             <Form onSubmit={this.onSubmit}>
               <FormGroup>
-                <Label for='name'>Name</Label>
+                <Label for='name' className="modalHead">Name</Label>
                 <Input
                   type='text'
                   name='name'
@@ -100,7 +100,7 @@ class RegisterModal extends Component {
                   onChange={this.onChange}
                 />
 
-                <Label for='email'>Email</Label>
+                <Label for='email' className="modalHead">Email</Label>
                 <Input
                   type='email'
                   name='email'
@@ -110,7 +110,7 @@ class RegisterModal extends Component {
                   onChange={this.onChange}
                 />
 
-                <Label for='password'>Password</Label>
+                <Label for='password' className="modalHead">Password</Label>
                 <Input
                   type='password'
                   name='password'
