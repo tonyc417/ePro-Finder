@@ -23,27 +23,35 @@ class Posts extends Component {
         const { user } = this.props.auth;
         const { items } = this.props.item;
 
+        for (var i = 0; i < items.length; i++) {
+            console.log(items[i])
+            var newPost = document.createElement("div");
+            var titlePost = document.createElement("h5");
+            titlePost.innerHTML ="Works Testing";
+            newPost.append(titlePost);
+            document.body.append(newPost);
+        }
         return (
             <div>
                 <div className="controls">
                     <div className="sidebar">
                         <nav className="sidebar-nav">
                             <ul className="nav">
-                                <li className="nav-item">
+                                <li className="nav-item sideNav">
                                     <p className="nav-link active" href="#">
                                         Welcome, {user ? `${user.name}`: ''}
                                     </p>
                                 </li>
                                 <Link to="/">
                                     <li className="nav-item">
-                                        <p className="nav-link" href="#">
+                                        <p className="nav-link sideNav" href="#">
                                             Home
                                      </p>
                                     </li>
                                 </Link>
                                 <Link to="/games">
                                     <li className="nav-item">
-                                        <p className="nav-link" href="#">
+                                        <p className="nav-link sideNav" href="#">
                                             Games
                                      </p>
                                     </li>
@@ -53,33 +61,6 @@ class Posts extends Component {
                     </div>
                     <div>
                         <Container>
-                            <h4>Home</h4>
-                            {/* <Card>
-                                <CardHeader>New Post</CardHeader>
-                                <CardBody>
-                                    <CardText>
-                                        <input></input>
-                                    </CardText>
-                                </CardBody>
-                            </Card> */}
-                            <PostModal />
-                            <Card>
-                                <CardBody>
-                                {items.map((item) => (
-                                    <CardTitle>
-                                        <Button
-                                            className="remove-btn"
-                                            color="danger"
-                                            size="sm"
-                                            onClick={this.onDeleteClick.bind(this, item._id)}
-                                        >&times;</Button>
-                                    {item.name} Posted by: {user ? `${user.name}`: ''}
-                                    </CardTitle>
-                                ))}
-                                </CardBody>
-                            </Card>
-                        </Container>
-                        {/* <Container>
                         <h4>Home</h4>
                         <PostModal />
                         <Card className="itemCard mb-5">
@@ -99,7 +80,7 @@ class Posts extends Component {
                             ))}
                         </TransitionGroup>
                     </Card>
-                    </Container> */}
+                    </Container>
                     </div>
                 </div>
             </div>
