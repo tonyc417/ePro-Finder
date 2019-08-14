@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {
-    Container, Card, CardHeader, CardText, CardBody,
-    CardTitle, CardSubtitle, Button
+    Container, Card, CardImg, CardText, CardBody,
+    CardTitle, CardSubtitle, Button, Navbar, NavbarBrand, NavbarToggler, Collapse, Nav
 } from 'reactstrap';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { connect } from 'react-redux';
@@ -9,80 +9,64 @@ import { getItems, deleteItem } from '../actions/itemActions';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import PostModal from './PostModal';
+import Avatar from '../images/avatar.jpg';
+import Person from './NewPost';
 
 class Posts extends Component {
     componentDidMount() {
         this.props.getItems();
     }
 
+    state = {
+        isOpen: false
+    };
+
+    toggle = () => {
+        this.setState({
+            isOpen: !this.state.isOpen
+        });
+    };
+
     onDeleteClick = (id) => {
         this.props.deleteItem(id);
     }
+    
 
     render() {
         const { user } = this.props.auth;
         const { items } = this.props.item;
-
-        for (var i = 0; i < items.length; i++) {
-            console.log(items[i])
-            var newPost = document.createElement("div");
-            var titlePost = document.createElement("h5");
-            titlePost.innerHTML ="Works Testing";
-            newPost.append(titlePost);
-            document.body.append(newPost);
-        }
+        const postList = items.map(person => <Person person={person} />)
         return (
             <div>
-                <div className="controls">
-                    <div className="sidebar">
-                        <nav className="sidebar-nav">
-                            <ul className="nav">
-                                <li className="nav-item sideNav">
-                                    <p className="nav-link active" href="#">
-                                        Welcome, {user ? `${user.name}`: ''}
-                                    </p>
-                                </li>
-                                <Link to="/">
-                                    <li className="nav-item">
-                                        <p className="nav-link sideNav" href="#">
-                                            Home
-                                     </p>
-                                    </li>
-                                </Link>
-                                <Link to="/games">
-                                    <li className="nav-item">
-                                        <p className="nav-link sideNav" href="#">
-                                            Games
-                                     </p>
-                                    </li>
-                                </Link>
-                            </ul>
-                        </nav>
-                    </div>
-                    <div>
+                <div>
+                    <Navbar dark expand='sm' className='mb-5 customNav'>
                         <Container>
+                            <NavbarBrand href='/'>ePro-Connect</NavbarBrand>
+                            <NavbarToggler onClick={this.toggle} />
+                            <Collapse isOpen={this.state.isOpen} navbar>
+                                <Nav className='ml-auto' navbar>
+                                    <ul className='nav-links'>
+                                        <li>Games</li>
+                                        <li>My Profile</li>
+                                        <li>Find Clan</li>
+                                    </ul>
+                                </Nav>
+                            </Collapse>
+                        </Container>
+                    </Navbar>
+                </div>
+                <Card className='itemCard'>
+                    <CardBody>
+                        <img src={Avatar} alt='User profile image' width='100px' />
+                        <CardTitle>Tony Cruz</CardTitle>
+                        <CardText>Platform:</CardText>
+                    </CardBody>
+                </Card>
+                <Container>
                         <h4>Home</h4>
                         <PostModal />
-                        <Card className="itemCard mb-5">
-                        <TransitionGroup className="shopping-list">
-                            {items.map(({ _id, name, summary }) => (
-                                <CSSTransition key={_id} timeout={500} classNames="fade">
-                                    <CardTitle>
-                                        <Button
-                                            className="remove-btn"
-                                            color="danger"
-                                            size="sm"
-                                            onClick={this.onDeleteClick.bind(this, _id)}
-                                        >&times;</Button>
-                                        <h2 className="card-title">{name}</h2> <h4 className="card-text">{summary}</h4>
-                                    </CardTitle>
-                                </CSSTransition>
-                            ))}
-                        </TransitionGroup>
-                    </Card>
+                        {postList}
                     </Container>
-                    </div>
-                </div>
             </div>
         );
     }

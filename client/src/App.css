@@ -94,6 +94,8 @@ body{
 
 }
 
+/* Card Styles and Feed Styles */
+
 .itemCard {
   display: inline;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
@@ -101,13 +103,21 @@ body{
   border-radius: .25rem;
   margin-left: 40px;
   margin-right: 40px;
-  padding: 2px 16px;
+  padding: 40px 46px;
   text-align: center;
   background-color: grey;
 }
 
 .card-title {
   color: black;
+}
+
+.feedCard {
+  background-color: grey;
+}
+
+.feedText {
+  font-size: 40px;
 }
 
 /* Animations for front page */
