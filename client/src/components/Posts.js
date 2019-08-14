@@ -38,7 +38,7 @@ class Posts extends Component {
         return (
             <div>
                 <div>
-                    <Navbar dark expand='sm' className='mb-5 customNav'>
+                    <Navbar dark expand='sm' className='mb-5 customNav bg-dark'>
                         <Container>
                             <NavbarBrand href='/'>ePro-Connect</NavbarBrand>
                             <NavbarToggler onClick={this.toggle} />

@@ -120,6 +120,11 @@ body{
   font-size: 40px;
 }
 
+.newsText {
+  color:black;
+  
+}
+
 /* Animations for front page */
 
 .animated-text {
@@ -201,3 +206,4 @@ body{
 .modalHead {
   color: black;
 }
+

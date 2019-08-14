@@ -11,7 +11,7 @@ const newsArticle = ({title, img, author, description}) => {
                 <CardBody>
                     <CardTitle className="text-white">{title}</CardTitle>
                     <CardSubtitle>Published by: {author} </CardSubtitle>
-                    <CardText>Description: {description}</CardText>
+                    <CardText className="newsText">Description: {description}</CardText>
                 </CardBody>
             </Card>
         </div>
