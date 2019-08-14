@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import {
-    Container, Card, CardImg, CardText, CardBody,
-    CardTitle, CardSubtitle, Button, Navbar, NavbarBrand, NavbarToggler, Collapse, Nav
+    Container, Card, CardText, CardBody,
+    CardTitle, Button, Navbar, NavbarBrand, NavbarToggler, Collapse, Nav, Row, Col
 } from 'reactstrap';
-import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { connect } from 'react-redux';
 import { getItems, deleteItem } from '../actions/itemActions';
 import { Link } from 'react-router-dom';
@@ -11,6 +10,7 @@ import PropTypes from 'prop-types';
 import PostModal from './PostModal';
 import Avatar from '../images/avatar.jpg';
 import Person from './NewPost';
+import News from './newscomponent/News';
 
 class Posts extends Component {
     componentDidMount() {
@@ -30,7 +30,7 @@ class Posts extends Component {
     onDeleteClick = (id) => {
         this.props.deleteItem(id);
     }
-    
+
 
     render() {
         const { user } = this.props.auth;
@@ -46,9 +46,15 @@ class Posts extends Component {
                             <Collapse isOpen={this.state.isOpen} navbar>
                                 <Nav className='ml-auto' navbar>
                                     <ul className='nav-links'>
-                                        <li>Games</li>
-                                        <li>My Profile</li>
-                                        <li>Find Clan</li>
+                                        <Link to="/games">
+                                            <li>Games</li>
+                                        </Link>
+                                        <Link to='/profile'>
+                                            <li>My Profile</li>
+                                        </Link>
+                                        <Link to="clans">
+                                            <li>Find Clan</li>
+                                        </Link>
                                     </ul>
                                 </Nav>
                             </Collapse>
@@ -58,15 +64,23 @@ class Posts extends Component {
                 <Card className='itemCard'>
                     <CardBody>
                         <img src={Avatar} alt='User profile image' width='100px' />
-                        <CardTitle>Tony Cruz</CardTitle>
+                        <CardTitle className="text-white">{user ? `${user.name}` : ''}</CardTitle>
                         <CardText>Platform:</CardText>
                     </CardBody>
                 </Card>
                 <Container>
-                        <h4>Home</h4>
-                        <PostModal />
-                        {postList}
-                    </Container>
+                    <Row>
+                        <Col>
+                            <h4>Home</h4>
+                            <PostModal />
+                            {postList}
+                        </Col>
+                        <Col>
+                            <h4>News</h4>
+                            <News />
+                        </Col>
+                    </Row>
+                </Container>
             </div>
         );
     }
