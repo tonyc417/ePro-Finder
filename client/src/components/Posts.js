@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {
     Container, Card, CardText, CardBody,
-    CardTitle, Button, Navbar, NavbarBrand, NavbarToggler, Collapse, Nav, Row, Col
+    CardTitle, Navbar, NavbarBrand, NavbarToggler, Collapse, Nav, Row, Col
 } from 'reactstrap';
 import { connect } from 'react-redux';
 import { getItems, deleteItem } from '../actions/itemActions';
@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import PostModal from './PostModal';
 import Avatar from '../images/avatar.jpg';
-import Person from './NewPost';
+import NewPost from './NewPost';
 import News from './newscomponent/News';
 
 class Posts extends Component {
@@ -35,7 +35,6 @@ class Posts extends Component {
     render() {
         const { user } = this.props.auth;
         const { items } = this.props.item;
-        const postList = items.map(person => <Person person={person} />)
         return (
             <div>
                 <div>
@@ -63,7 +62,7 @@ class Posts extends Component {
                 </div>
                 <Card className='itemCard'>
                     <CardBody>
-                        <img src={Avatar} alt='User profile image' width='100px' />
+                        <img src={Avatar} alt='User profile icon' width='100px' />
                         <CardTitle className="text-white">{user ? `${user.name}` : ''}</CardTitle>
                         <CardText>Platform:</CardText>
                     </CardBody>
@@ -73,7 +72,13 @@ class Posts extends Component {
                         <Col>
                             <h4>Home</h4>
                             <PostModal />
-                            {postList}
+                            {items.map(item => (
+                                <NewPost
+                                    key={item._id}
+                                    name={item.name}
+                                    date={item.date}
+                                />
+                            ))}
                         </Col>
                         <Col>
                             <h4>News</h4>

@@ -1,13 +1,13 @@
 import React from 'react';
-import { Card, CardImg, CardText, CardBody,
-    CardTitle, CardSubtitle, Button } from 'reactstrap';
+import { Card, CardText, CardBody,
+    CardTitle, CardSubtitle } from 'reactstrap';
   
 
-const newsArticle = ({title, img, author, description, key}) => {
+const newsArticle = ({title, img, author, description}) => {
     return(
-        <div key={key} >
+        <div>
             <Card className="mt-2 itemCard">
-                <img src={img} alt="A image" width="250px" />
+                <img src={img} alt="An esports icon" width="250px" />
                 <CardBody>
                     <CardTitle className="text-white">{title}</CardTitle>
                     <CardSubtitle>Published by: {author} </CardSubtitle>

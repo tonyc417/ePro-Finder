@@ -14,7 +14,7 @@ class UserProfile extends Component {
     };
 
     render() {
-        const { user, isAuthenticated } = this.props.auth;
+        const { user } = this.props.auth;
         console.log(user);
         return(
             <div>
