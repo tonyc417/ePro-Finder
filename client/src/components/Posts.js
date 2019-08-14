@@ -63,7 +63,7 @@ class Posts extends Component {
                 <Card className='itemCard'>
                     <CardBody>
                         <img src={Avatar} alt='User profile icon' width='100px' />
-                        <CardTitle className="text-white">{user ? `${user.name}` : ''}</CardTitle>
+                        <CardTitle className="text-white">{user ? `Welcome, ${user.name}` : ''}</CardTitle>
                         <CardText>Platform:</CardText>
                     </CardBody>
                 </Card>
