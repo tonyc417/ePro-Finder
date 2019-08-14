@@ -4,18 +4,17 @@ import RegisterModal from './auth/RegisterUser';
 
 const frontNav = () => {
     return (
-        <div className="hero-image">
+        <div className="profile-bg">
             <nav className="logoBar">
                 <ul className="nav-links">
                     <Link to="/">
                         <li className="float-left">eRecruit</li>
                     </Link>
-                    <RegisterModal />
                 </ul>
             </nav>
             <nav className="nav-bar">
                 <ul className="nav-links">
-                    <Link to="/">
+                    <Link to="/home">
                         <li>Home</li>
                     </Link>
                     <Link to="/games">
